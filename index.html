@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body  {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #FFB567;
+            }
+
+* {box-sizing: border-box;}
+
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #FFE4D8;
+  z-index: 9;
+}
+
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color:#FFECD8;
+}
+
+
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+.form-container .btn {
+  background-color: #1389B2 ;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+
+.form-container .cancel {
+  background-color:#F97617;
+}
+
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.navbar {
+  width: 100%;
+  background-color:inherit;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #FFEED8;
+  color:#555;
+}
+
+.active {
+  background-color:inherit;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+
+  <div class="navbar">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-fw fa-search"></i> Zoek</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+  </div>
+
+
+
+
+</head>
+
+<body>
+
+  <h1>Contactpagina</h1>
+  <p></p>
+
+
+  <button class="open-button" onclick="openForm()">Start een gesprek</button>
+
+  <div class="chat-popup" id="myForm">
+    <form action="action_page.php" class="form-container" method="post">
+      <h1>Welkom bij marktplaats. waarmee kan ik je helpen?</h1>
+
+      <label for="msg"><b>Start een gesprek</b></label>
+      <textarea placeholder="type je bericht.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Verzend</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Beeindig gesprek</button>
+    </form>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
